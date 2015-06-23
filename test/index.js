@@ -4,3 +4,19 @@ var chai = require('chai'),
   sinonChai = require("sinon-chai");
 
 chai.use(sinonChai);
+
+var introject = require('../lib');
+
+describe('injectDeps', function() {
+  it('should properly inject deps', function() {
+    var _add = function(a, b) {
+      return a + b;
+    };
+    var injected = introject.injectDeps(_add, {
+      a: 3,
+      b: 5
+    });
+
+    expect(injected()).to.equal(3 + 5);
+  });
+});
