@@ -19,4 +19,14 @@ describe('injectDeps', function() {
 
     expect(injected()).to.equal(3 + 5);
   });
+
+  it('should try to require missing deps', function() {
+    var something = {};
+    var doSomethingWithFs = function(fs) {
+      something.read = fs.read;
+    };
+    var injected = introject.injectDeps(doSomethingWithFs, {});
+    injected();
+    expect(something.read).to.equal(require('fs').read);
+  });
 });
