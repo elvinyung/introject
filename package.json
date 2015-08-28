@@ -1,6 +1,6 @@
 {
   "name": "introject",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Minification-safe introspection-based dependency injection framework",
   "main": "index.js",
   "scripts": {
